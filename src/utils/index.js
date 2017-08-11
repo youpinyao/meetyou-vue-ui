@@ -1,9 +1,71 @@
-import moduleName from './name.js';
+import uuidV4 from 'uuid/v4';
 
-angular.module(moduleName, [
+const utils = {
+  each,
+  isNull,
+  isEmpty,
+  isArray,
+  uuid,
+};
 
-]).config(function () {}).run(function () {});
+export default utils;
 
-require('./src/utils.js');
+function each(data, callback) {
+  if (!data) {
+    return;
+  }
 
-export default moduleName;
+  if (isObject(data)) {
+    if (!isNaN(data.length)) {
+      data.forEach((v, k, f) => {
+        callback.call(v, v, k, f);
+      });
+    } else {
+      const items = Object.keys(data);
+      each(items, (v) => {
+        callback.call(data[v], data[v], v, data);
+      });
+    }
+  }
+}
+
+function isNull(value) {
+  if (value === '' || value === undefined || value === null) {
+    return true;
+  }
+  return false;
+}
+
+function isEmpty(data) {
+  if (isNull(data)) {
+    return true;
+  }
+  let count = 0;
+
+  each(data, () => {
+    count += 1;
+  });
+
+  return count <= 0;
+}
+
+function isObject(data) {
+  return typeof data === 'object' && data !== null;
+}
+
+function isArray(data) {
+  if (Array.isArray) {
+    return Array.isArray(data);
+  }
+  if (typeof data === 'object' && data && data.length) {
+    return true;
+  }
+  return false;
+}
+
+function uuid() {
+  // const uuidV1 = require('uuid/v1');
+  // uuidV1();
+  // const uuidV4 = require('uuid/v4');
+  return uuidV4();
+}

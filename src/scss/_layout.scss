@@ -207,6 +207,15 @@ $colCount: 24;
   .control-tip {
     color: $grey;
     padding-left: 10px;
+    &.danger {
+      color: $danger;
+    }
+    &.success {
+      color: $success;
+    }
+    &.warning {
+      color: $warning;
+    }
   }
 }
 
@@ -295,7 +304,7 @@ $colCount: 24;
     bottom: -17px;
     line-height: normal;
     font-weight: normal;
-    z-index: 10;
+    z-index: 1;
     overflow: visible;
     white-space: nowrap;
   }
@@ -374,35 +383,39 @@ body > div > .header {
   }
 }
 
-body > .main {
-  /* @include transition(margin 300ms ease);*/
-  min-width: $minWidth;
-  div.container {
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 30px;
-    padding-right: 30px;
-    background-color: $white;
-    -webkit-box-shadow: 0 0 4px 0 rgba($black, 0.1);
-    box-shadow: 0 0 4px 0 rgba($black, 0.1);
-    border-radius: 5px;
+body > div {
+  > .main {
+    /* @include transition(margin 300ms ease);*/
+    min-width: $minWidth;
+    div.container {
+      padding-top: 20px;
+      padding-bottom: 20px;
+      padding-left: 30px;
+      padding-right: 30px;
+      background-color: $white;
+      -webkit-box-shadow: 0 0 4px 0 rgba($black, 0.1);
+      box-shadow: 0 0 4px 0 rgba($black, 0.1);
+      border-radius: 5px;
+    }
   }
 }
 
 .header-fixed {
-  > div > .header {
-    position: fixed;
-    left: 0px;
-    top: 0px;
-    width: 100%;
-  }
-  .nav {
-    .second-nav {
+  > div {
+    > .header {
       position: fixed;
-      margin-left: 0;
+      left: 0px;
+      top: 0px;
+      width: 100%;
     }
-  }
-  > .main {
-    margin-top: $headerHeight;
+    .nav {
+      .second-nav {
+        position: fixed;
+        margin-left: 0;
+      }
+    }
+    > .main {
+      margin-top: $headerHeight;
+    }
   }
 }
