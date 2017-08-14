@@ -44,8 +44,15 @@
   </div>
 </template>
 <script>
+  import {
+    maCrumbAuto,
+  } from '../../../src/components';
+
   export default {
     name: 'utils',
+    components: {
+      maCrumbAuto,
+    },
   };
 
 </script>

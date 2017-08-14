@@ -36,9 +36,17 @@
 <script>
   import '../../src/scss/app.scss';
   import '../scss/app.scss';
+  import {
+    maFirstMenu,
+  } from '../../src/components';
+
+  console.log(maFirstMenu);
 
   export default {
     name: 'app',
+    components: {
+      maFirstMenu,
+    },
     methods: {
       logout($event) {
         console.log($event);
