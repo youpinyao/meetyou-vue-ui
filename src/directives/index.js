@@ -1,5 +1,5 @@
+import Vue from 'vue';
+
 import maFullContainer from './maFullContainer';
 
-export {
-  maFullContainer,
-};
+Vue.directive('ma-full-container', maFullContainer);

@@ -43,6 +43,20 @@ module.exports = {
         }],
       },
       {
+        test: /\.html$/,
+        use: [{
+          loader: 'html-loader',
+          options: {
+            interpolate: true,
+            ignoreCustomFragments: [/\{\{.*?}}/],
+            attrs: ['img:src', 'link:href', 'audio:src', 'video:src', 'script:src',
+              'div:data-src', 'img:data-src'
+            ],
+            minimize: false
+          }
+        }],
+      },
+      {
         test: /\.js$/,
         loader: 'babel-loader',
         include: [resolve('src'), resolve('example'), resolve('test')],

@@ -3,14 +3,20 @@
 import Vue from 'vue';
 import util from './utils';
 
-import maFullContainer from './directives/maFullContainer';
+import './directives';
 
-import maFirstMenu from './components/menu/maFirstMenu';
-import maCrumbAuto from './components/crumb/maCrumbAuto';
+import {
+  maFirstMenu,
+  maSiderMenu,
+  maSiderMenuContent,
+  maCrumbAuto,
+  maIcon,
+} from './components';
 
 window.util = util;
 
-Vue.directive('ma-full-container', maFullContainer);
-
 Vue.component('maFirstMenu', maFirstMenu);
 Vue.component('maCrumbAuto', maCrumbAuto);
+Vue.component('maSiderMenu', maSiderMenu);
+Vue.component('maSiderMenuContent', maSiderMenuContent);
+Vue.component('maIcon', maIcon);

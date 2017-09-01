@@ -6,5 +6,6 @@
   "end_with_newline": true,
   "wrap_attributes": "force",
   "wrap_line_length": 100,
-  "unformatted": []
+  "unformatted": [],
+  "jslint_happy": true
 }

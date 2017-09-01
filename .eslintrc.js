@@ -38,6 +38,7 @@ module.exports = {
     'no-console': 0,
     "no-use-before-define": 0,
     "no-unused-vars": 0,
-    "no-param-reassign": 0
+    "no-param-reassign": 0,
+    "func-names": 0
   }
 }

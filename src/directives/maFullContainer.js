@@ -1,10 +1,14 @@
 import $ from 'jquery';
 
-function inserted(el) {
+let fn = null;
+
+function bind(el) {
   const element = $(el);
 
   setTimeout(updateMinHeight);
-  $(window).resize(updateMinHeight);
+  $(window).bind('resize', updateMinHeight);
+
+  fn = updateMinHeight;
 
   function updateMinHeight() {
     element.css({
@@ -13,6 +17,11 @@ function inserted(el) {
   }
 }
 
+function unbind(el) {
+  $(window).unbind('resize', fn);
+}
+
 export default {
-  inserted,
+  bind,
+  unbind,
 };

@@ -5,6 +5,7 @@
         :class="{
           active: cRoute.path === route.path || cRoute.path.indexOf(route.path + '/') !== -1
         }"
+        v-if="route.path !== '/' && route.hidden !== true"
         :key="route.name">
         <a href="javascript:void(0)"
           @click="toPage(route)">{{route.name}}</a>
