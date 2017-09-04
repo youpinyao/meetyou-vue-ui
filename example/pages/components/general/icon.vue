@@ -110,8 +110,9 @@
           if (icon.text === e.text) {
             icon.status = 'Copied!';
             this.$forceUpdate();
-            this.$nextTick(() => {
+            setTimeout(() => {
               icon.status = '';
+              this.$forceUpdate();
             }, 600);
           }
         });

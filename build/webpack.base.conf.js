@@ -66,12 +66,12 @@ module.exports = {
             ['es2015', 'stage-0']
           ],
           plugins: [
-            ["transform-runtime", {
-              "helpers": true,
-              "polyfill": true,
-              "regenerator": true,
-              "moduleName": "babel-runtime"
-            }],
+            // ["transform-runtime", {
+            //   "helpers": true,
+            //   "polyfill": true,
+            //   "regenerator": true,
+            //   "moduleName": "babel-runtime"
+            // }],
             'syntax-dynamic-import', ['transform-es2015-classes', {
               loose: true
             }],
