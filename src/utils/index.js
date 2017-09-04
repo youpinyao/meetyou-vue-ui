@@ -6,9 +6,35 @@ const utils = {
   isEmpty,
   isArray,
   uuid,
+  href,
 };
 
 export default utils;
+
+function href(path, params) {
+  let newPath = '';
+
+  if (isObject(path)) {
+    const pathArr = [];
+    let route = path;
+
+    pathArr.push(route.path);
+    while (route.parent) {
+      pathArr.unshift(href(route.parent.path, route.parent.params || {}));
+      route = route.parent;
+    }
+    newPath = pathArr.join('/');
+  } else {
+    newPath = `${path}`;
+  }
+
+  each(params, (value, key) => {
+    const reg = new RegExp(`:${key}`, 'g');
+    newPath.replace(reg, value);
+  });
+
+  return newPath;
+}
 
 function each(data, callback) {
   if (!data) {

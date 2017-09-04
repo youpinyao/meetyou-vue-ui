@@ -21,6 +21,7 @@
 </template>
 <script>
   import $ from 'jquery';
+  import uuidv4 from 'uuid/v4';
   import util from '../../utils';
 
   const cls = 'has-sider-menu';
@@ -40,16 +41,73 @@
         parentRouter: this.maParentRouter,
       };
     },
-    mounted() {
-
-    },
+    mounted() {},
     created() {
+      const self = this;
+      const uuid = uuidv4();
+      const fnName = `maSiderMenuContentAfterEach-${uuid}`;
+      const fns = {
+        [fnName]() {
+          self.expandCurrentMenu();
+        },
+      };
 
+      this.fnName = fnName;
+      this.fns = fns;
+      this.forceUpdate = forceUpdate;
+      this.expandCurrentMenu();
+
+      this.$root.$on('update.sider.menu.cls', fns[fnName]);
+      this.$root.$on('update.sider.menu.force', this.forceUpdate);
+      this.$router.afterEach(fns[fnName]);
+
+      function forceUpdate() {
+        self.$forceUpdate();
+      }
     },
     destroyed() {
+      this.$root.$off('update.sider.menu.cls', this.fns[this.fnName]);
+      this.$root.$off('update.sider.menu.force', this.forceUpdate);
 
+      // 删除router afterEach
+      util.each(this.$router.afterHooks, (d, i) => {
+        if (d.name === this.fnName) {
+          delete this.$router.afterHooks[i];
+        }
+      });
     },
     methods: {
+      expandCurrentMenu(routers) {
+        const currentUrl = this.$router.currentRoute.path;
+        const isFromParent = util.isArray(routers);
+
+        if (isFromParent || this.routers) {
+          util.each(isFromParent ? routers[0] : this.routers, (router) => {
+            const routerUrl = util.href(router, router.params);
+            const isActive = this.isActive(router);
+
+            if (currentUrl.indexOf(`${router.path}/`) !== -1) {
+              router.expand = true;
+            }
+            if (isFromParent) {
+              if (isActive) {
+                routers[1].expand = true;
+              }
+            } else if (!!this.parentRouter && isActive) {
+              this.parentRouter.expand = true;
+            }
+
+            router.cls = '';
+            router.cls += isActive ? 'active ' : '';
+            router.cls += router.children && router.children.length ? 'arrow ' : '';
+            router.cls += this.isParent(currentUrl, routerUrl) ? 'parent ' : '';
+
+            if (router.children && router.children.length) {
+              this.expandCurrentMenu([router.children, router]);
+            }
+          });
+        }
+      },
       itemClick(route, $event) {
         if (route.children && route.children.length && util.isNull(route.path)) {
           this.toggleMenu(route, $event);
@@ -85,11 +143,49 @@
         route.expand = !route.expand;
         this.$forceUpdate();
       },
-      isParent(currentUrl, routeUrl) {
-
+      isParent(currentUrl, routerUrl) {
+        return currentUrl.indexOf(`${routerUrl}/`) !== -1 && currentUrl !== routerUrl;
       },
-      isActive(route) {
+      isActive(router) {
+        const urls = [];
+        const params = $.extend(true, {}, router.params);
+        const currentRoute = this.$router.currentRoute;
+        let active = false;
 
+        urls.push(util.href(router, params));
+
+        if (router.activeParams && router.activeParams.length) {
+          router.activeParams.forEach((d) => {
+            urls.push(util.href(router, $.extend(true, params, d)));
+          });
+        }
+
+        active = urls.indexOf(currentRoute.path) !== -1 || (
+          this.isParent(currentRoute.path, urls[0]) && !(router.children &&
+            router.children.length)
+        );
+
+        if (active === false && router.childs && router.childs.length) {
+          router.childs.forEach((d) => {
+            if (currentRoute.path === d.path) {
+              if (util.isEmpty(d.params)) {
+                active = true;
+              } else {
+                let count = 0;
+                let sameCount = 0;
+                util.each(d.params, (v, k) => {
+                  if (currentRoute.params[k] === v) {
+                    sameCount += 1;
+                  }
+                  count += 1;
+                });
+                active = count === sameCount;
+              }
+            }
+          });
+        }
+
+        return active;
       },
       goTo(route) {
         const path = [route.path];
