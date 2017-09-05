@@ -7,6 +7,7 @@ const utils = {
   isArray,
   uuid,
   href,
+  fullPath,
 };
 
 export default utils;
@@ -15,17 +16,26 @@ function href(path, params) {
   let newPath = '';
 
   if (isObject(path)) {
-    const pathArr = [];
-    let route = path;
+    const route = path;
+    newPath = fullPath(route);
 
-    pathArr.push(route.path);
-    while (route.parent) {
-      pathArr.unshift(href(route.parent.path, route.parent.params || {}));
-      route = route.parent;
+    if (isNull(params)) {
+      params = route.params;
     }
-    newPath = pathArr.join('/');
   } else {
     newPath = `${path}`;
+  }
+
+  setPathParams(newPath, params);
+
+  return newPath;
+}
+
+function setPathParams(path, params) {
+  let newPath = `${path}`;
+
+  if (isArray(path)) {
+    newPath = path.join('/');
   }
 
   each(params, (value, key) => {
@@ -33,7 +43,25 @@ function href(path, params) {
     newPath.replace(reg, value);
   });
 
+  if (isArray(path)) {
+    return newPath.split('/');
+  }
+
   return newPath;
+}
+
+function fullPath(route) {
+  let pathArr = [];
+
+  pathArr.push(route.path);
+  pathArr = setPathParams(pathArr, route.params);
+  while (route.parent) {
+    pathArr.unshift(href(route.parent.path, route.parent.params || {}));
+    pathArr = setPathParams(pathArr, route.parent.params);
+    route = route.parent;
+  }
+
+  return pathArr.join('/');
 }
 
 function each(data, callback) {

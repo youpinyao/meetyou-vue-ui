@@ -7,6 +7,7 @@ import './directives';
 
 import {
   maFirstMenu,
+  maSecondMenu,
   maSiderMenu,
   maSiderMenuContent,
   maCrumbAuto,
@@ -16,6 +17,7 @@ import {
 window.util = util;
 
 Vue.component('maFirstMenu', maFirstMenu);
+Vue.component('maSecondMenu', maSecondMenu);
 Vue.component('maCrumbAuto', maCrumbAuto);
 Vue.component('maSiderMenu', maSiderMenu);
 Vue.component('maSiderMenuContent', maSiderMenuContent);

@@ -86,13 +86,13 @@
 }
 
 .has-second-nav {
-  > .main {
+  > div > .main {
     margin-top: $secondNavHeight;
   }
 }
 
 .header-fixed.has-second-nav {
-  > .main {
+  > div > .main {
     margin-top: $headerHeight + $secondNavHeight;
   }
 }

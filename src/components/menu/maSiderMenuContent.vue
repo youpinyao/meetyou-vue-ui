@@ -188,15 +188,7 @@
         return active;
       },
       goTo(route) {
-        const path = [route.path];
-        let rou = route;
-
-        while (rou.parent) {
-          path.unshift(rou.parent.path);
-          rou = rou.parent;
-        }
-
-        this.$router.push(path.join('/'));
+        this.$router.push(util.href(route));
       },
     },
     watch: {

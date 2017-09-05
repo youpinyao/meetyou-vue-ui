@@ -14,7 +14,7 @@
           </div>
         </div>
         <ma-first-menu class="container-fluid">
-          <!-- <ma-second-menu></ma-second-menu> -->
+          <ma-second-menu></ma-second-menu>
         </ma-first-menu>
         <div class="info">
           <div class="head">

@@ -13,7 +13,7 @@
         </p>
         <h3>如何使用</h3>
         <div class="p">
-          <code ng-bind="iconSampleCode"></code>
+          <code v-text="iconSampleCode"></code>
         </div>
         <h3>API</h3>
         <div class="p">
