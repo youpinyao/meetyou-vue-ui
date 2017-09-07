@@ -1,0 +1,97 @@
+<template>
+  <div>
+    <ma-crumb-auto></ma-crumb-auto>
+    <div class="layout-cls-page">
+      <div class="container"
+        v-ma-full-container>
+        <h2>Class 预设样式</h2>
+        <p>提供一些预设的样式，方便编码过程</p>
+        <h3>代码演示</h3>
+        <div class="p">
+          <table>
+            <tr>
+              <th>属性</th>
+              <th>说明</th>
+            </tr>
+            <tr>
+              <td>.clearfix</td>
+              <td>清浮动</td>
+            </tr>
+            <tr>
+              <td>.ellipsis</td>
+              <td>单行超出隐藏</td>
+            </tr>
+            <tr>
+              <td>.center</td>
+              <td>文本居中</td>
+            </tr>
+            <tr>
+              <td>.fl</td>
+              <td>左浮动</td>
+            </tr>
+            <tr>
+              <td>.fr</td>
+              <td>右浮动</td>
+            </tr>
+            <tr>
+              <td>.mr-*, .ml-*, .mt-*, mb-*（*符号对应值为：-5, -10, -20, 0, 5, 10, 20）</td>
+              <td>预设上下左右 margin 属性</td>
+            </tr>
+            <tr>
+              <td>.pr-*, .pl-*, .pt-*, pb-*（*符号对应值为 0, 5, 10, 20）</td>
+              <td>预设上下左右 padding 属性</td>
+            </tr>
+            <tr>
+              <td>@mixin transition</td>
+              <td>范例：@include transition(all 300ms ease); 非必填，默认 all 300ms ease</td>
+            </tr>
+            <tr>
+              <td>@mixin transform</td>
+              <td>范例：@include transform(all 300ms ease); 必填</td>
+            </tr>
+            <tr>
+              <td>@mixin transform-origin</td>
+              <td>范例：@include transform(top center); 非必填，默认 top center</td>
+            </tr>
+            <tr>
+              <td>@mixin line-clamp</td>
+              <td>范例：@include lineClamp(2); 非必填，默认 2</td>
+            </tr>
+            <tr>
+              <td>@mixin ellipsis</td>
+              <td>范例：@include ellipsis();</td>
+            </tr>
+            <tr>
+              <td>@mixin unselect</td>
+              <td>范例：@include unselect(); 让作用域内不可选中</td>
+            </tr>
+            <tr>
+              <td>@mixin iconfont</td>
+              <td>范例：@include iconfont(); 设置为图标的字体</td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</template>
+
+<script>
+  export default {
+    data() {
+      return {
+
+      };
+    },
+  };
+
+</script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style lang="scss"
+  scoped>
+  @import '../../../../src/scss/_theme';
+  @import '../../../../src/scss/mixin';
+
+</style>

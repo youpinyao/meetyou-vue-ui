@@ -10,6 +10,11 @@ import general from '../../pages/components/general';
 import icon from '../../pages/components/general/icon';
 import button from '../../pages/components/general/button';
 
+import layout from '../../pages/components/layout';
+import grid from '../../pages/components/layout/grid';
+import layout1 from '../../pages/components/layout/layout';
+import cls from '../../pages/components/layout/cls';
+
 import utils from '../../pages/utils';
 
 import empty from '../../pages/empty';
@@ -41,6 +46,26 @@ const routerConfig = [{
       path: 'color',
       name: 'Color 颜色',
       component: color,
+    }],
+  }, {
+    path: 'layout',
+    name: 'Layout 布局',
+    component: layout,
+    children: [{
+      path: '',
+      redirect: 'grid',
+    }, {
+      path: 'grid',
+      name: 'Grid 栅格',
+      component: grid,
+    }, {
+      path: 'layout1',
+      name: 'Layout 布局',
+      component: layout1,
+    }, {
+      path: 'cls',
+      name: 'Class 样式',
+      component: cls,
     }],
   }, {
     path: 'general',
