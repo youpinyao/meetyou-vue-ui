@@ -32,7 +32,7 @@
             </tr>
             <tr>
               <td>ma-size</td>
-              <td>尺寸x</td>
+              <td>尺寸px</td>
               <td>Int</td>
               <td>16</td>
             </tr>
