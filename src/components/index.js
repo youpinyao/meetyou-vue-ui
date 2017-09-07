@@ -5,6 +5,7 @@ import maSiderMenu from './menu/maSiderMenu';
 import maSiderMenuContent from './menu/maSiderMenuContent';
 
 import maIcon from './icons/maIcon';
+import maButton from './button/maButton';
 
 export {
   maCrumbAuto,
@@ -13,4 +14,5 @@ export {
   maSiderMenu,
   maSiderMenuContent,
   maIcon,
+  maButton,
 };

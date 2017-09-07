@@ -8,6 +8,7 @@ import font from '../../pages/components/global/font';
 
 import general from '../../pages/components/general';
 import icon from '../../pages/components/general/icon';
+import button from '../../pages/components/general/button';
 
 import utils from '../../pages/utils';
 
@@ -52,6 +53,10 @@ const routerConfig = [{
       path: 'icon',
       name: 'Icon 文字',
       component: icon,
+    }, {
+      path: 'button',
+      name: 'Button 按钮',
+      component: button,
     }],
   }],
 }, {

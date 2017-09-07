@@ -12,6 +12,7 @@ import {
   maSiderMenuContent,
   maCrumbAuto,
   maIcon,
+  maButton,
 } from './components';
 
 window.util = util;
@@ -22,3 +23,4 @@ Vue.component('maCrumbAuto', maCrumbAuto);
 Vue.component('maSiderMenu', maSiderMenu);
 Vue.component('maSiderMenuContent', maSiderMenuContent);
 Vue.component('maIcon', maIcon);
+Vue.component('maButton', maButton);
