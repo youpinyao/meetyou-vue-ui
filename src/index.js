@@ -2,7 +2,10 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import util from './utils';
 
-import './directives';
+import {
+  maFullContainer,
+} from './directives';
+
 
 import {
   maFirstMenu,
@@ -26,6 +29,8 @@ export default {
     Vue.component('maSiderMenuContent', maSiderMenuContent);
     Vue.component('maIcon', maIcon);
     Vue.component('maButton', maButton);
+
+    Vue.directive('ma-full-container', maFullContainer);
 
     Vue.use(maMessage);
 
