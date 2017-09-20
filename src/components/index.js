@@ -4,6 +4,8 @@ import maSecondMenu from './menu/maSecondMenu';
 import maSiderMenu from './menu/maSiderMenu';
 import maSiderMenuContent from './menu/maSiderMenuContent';
 
+import maMessage from './message';
+
 import maIcon from './icons/maIcon';
 import maButton from './button/maButton';
 
@@ -15,4 +17,5 @@ export {
   maSiderMenuContent,
   maIcon,
   maButton,
+  maMessage,
 };

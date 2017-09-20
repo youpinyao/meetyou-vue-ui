@@ -1,0 +1,16 @@
+<div class="weak-tip"
+  v-show="weakTipList.length">
+  <div v-for="(tip, $index) in weakTipList"
+    :key="$index"
+    v-if="tip.remove !== true">
+    <div @click="hideMessage($index)"
+      :class="{
+        'show-in': tip.hide === false,
+        'weak-tip-success': tip.type == 'success',
+        'weak-tip-danger': tip.type == 'danger',
+        'weak-tip-warning': tip.type == 'warning'
+      }"
+      v-text="tip.text"
+      v-cloak></div>
+  </div>
+</div>

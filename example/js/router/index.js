@@ -15,11 +15,13 @@ import grid from '../../pages/components/layout/grid';
 import layout1 from '../../pages/components/layout/layout';
 import cls from '../../pages/components/layout/cls';
 
+import feedback from '../../pages/components/feedback';
+import message from '../../pages/components/feedback/message';
+
 import utils from '../../pages/utils';
 
 import empty from '../../pages/empty';
 
-Vue.use(Router);
 
 const routerConfig = [{
   path: '/',
@@ -82,6 +84,18 @@ const routerConfig = [{
       path: 'button',
       name: 'Button 按钮',
       component: button,
+    }],
+  }, {
+    path: 'feedback',
+    name: 'Feedback 反馈',
+    component: feedback,
+    children: [{
+      path: '',
+      redirect: 'message',
+    }, {
+      path: 'message',
+      name: 'Message 全局提示',
+      component: message,
     }],
   }],
 }, {
