@@ -26,6 +26,9 @@ export default {
     Vue.component('maSiderMenuContent', maSiderMenuContent);
     Vue.component('maIcon', maIcon);
     Vue.component('maButton', maButton);
+
     Vue.use(maMessage);
+
+    Vue.prototype.$util = util;
   },
 };
