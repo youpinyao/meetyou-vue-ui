@@ -17,6 +17,7 @@ import cls from '../../pages/components/layout/cls';
 
 import feedback from '../../pages/components/feedback';
 import message from '../../pages/components/feedback/message';
+import alert from '../../pages/components/feedback/alert';
 
 import utils from '../../pages/utils';
 
@@ -96,6 +97,10 @@ const routerConfig = [{
       path: 'message',
       name: 'Message 全局提示',
       component: message,
+    }, {
+      path: 'alert',
+      name: 'Alert 警告提示',
+      component: alert,
     }],
   }],
 }, {

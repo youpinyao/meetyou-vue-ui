@@ -16,6 +16,7 @@ import {
   maIcon,
   maButton,
   maMessage,
+  maAlert,
 } from './components';
 
 window.util = util;
@@ -29,6 +30,7 @@ export default {
     Vue.component('maSiderMenuContent', maSiderMenuContent);
     Vue.component('maIcon', maIcon);
     Vue.component('maButton', maButton);
+    Vue.component('maAlert', maAlert);
 
     Vue.directive('ma-full-container', maFullContainer);
 
