@@ -8,10 +8,10 @@
         <h2>InputNumber 数字输入框</h2>
         <p>通过鼠标或键盘，输入范围内的数值。</p>
         <h3>代码演示</h3>
-        <div class="pb-20">
-          <ma-switch v-model="disabled"></ma-switch>
-        </div>
         <div class="p clearfix">
+          <div class="pb-20">
+            <ma-switch v-model="disabled"></ma-switch>
+          </div>
           <ma-input-number name="test"
             :min="1"
             :max="5"
