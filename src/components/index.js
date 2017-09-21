@@ -8,6 +8,9 @@ import maMessage from './message';
 import maAlert from './alert';
 import maSpin from './spin';
 
+import maInput from './input';
+import maSwitch from './switch';
+
 import maIcon from './icons/maIcon';
 import maButton from './button/maButton';
 
@@ -22,4 +25,6 @@ export {
   maMessage,
   maAlert,
   maSpin,
+  maInput,
+  maSwitch,
 };

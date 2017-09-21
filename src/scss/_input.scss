@@ -4,21 +4,21 @@ $inputRadius: 4px;
   border: 1px solid $success;
   padding-right: 32px;
   -webkit-box-shadow: 0 0 5px 0 rgba($success, 0.25);
-          box-shadow: 0 0 5px 0 rgba($success, 0.25);
+  box-shadow: 0 0 5px 0 rgba($success, 0.25);
 }
 
 @mixin error () {
   border: 1px solid $danger;
   padding-right: 32px;
   -webkit-box-shadow: 0 0 5px 0 rgba($danger, 0.25);
-          box-shadow: 0 0 5px 0 rgba($danger, 0.25);
+  box-shadow: 0 0 5px 0 rgba($danger, 0.25);
 }
 
 @mixin warning () {
   border: 1px solid $warning;
   padding-right: 32px;
   -webkit-box-shadow: 0 0 5px 0 rgba($warning, 0.25);
-          box-shadow: 0 0 5px 0 rgba($warning, 0.25);
+  box-shadow: 0 0 5px 0 rgba($warning, 0.25);
 }
 
 @mixin search () {
@@ -35,7 +35,7 @@ $inputRadius: 4px;
   color: $grey !important;
   cursor: not-allowed !important;
   -webkit-box-shadow: none !important;
-          box-shadow: none !important;
+  box-shadow: none !important;
   @include unselect();
 }
 

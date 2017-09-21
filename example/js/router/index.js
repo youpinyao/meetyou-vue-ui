@@ -20,6 +20,9 @@ import message from '../../pages/components/feedback/message';
 import alert from '../../pages/components/feedback/alert';
 import spin from '../../pages/components/feedback/spin';
 
+import dataEntry from '../../pages/components/data-entry';
+import input from '../../pages/components/data-entry/input';
+
 import utils from '../../pages/utils';
 
 import empty from '../../pages/empty';
@@ -106,6 +109,18 @@ const routerConfig = [{
       path: 'spin',
       name: 'Spin 加载中',
       component: spin,
+    }],
+  }, {
+    path: 'data-entry',
+    name: 'DataEntry 数据输入',
+    component: dataEntry,
+    children: [{
+      path: '',
+      redirect: 'input',
+    }, {
+      path: 'input',
+      name: 'Input 输入框',
+      component: input,
     }],
   }],
 }, {
