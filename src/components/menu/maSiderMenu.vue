@@ -43,15 +43,15 @@
       const self = this;
       const uuid = uuidv4();
       const fnName = `maSiderMenuAfterEach-${uuid}`;
-      const fns = {
-        [fnName]() {
-          self.$root.$emit('update.sider.menu.force');
-        },
+      const fn = function () {
+        self.$root.$emit('update.sider.menu.force');
       };
 
+      fn.fnName = fnName;
       this.fnName = fnName;
 
-      this.$router.afterEach(fns[fnName]);
+      console.log('sider menu created');
+      this.$router.afterEach(fn);
     },
     destroyed() {
       $('body').removeClass(cls);
@@ -60,7 +60,7 @@
       this.$root.$off('update.second.menu', this.setTop);
       // 删除router afterEach
       util.each(this.$router.afterHooks, (d, i) => {
-        if (d.name === this.fnName) {
+        if (d.fnName === this.fnName) {
           delete this.$router.afterHooks[i];
         }
       });

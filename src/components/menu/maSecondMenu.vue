@@ -2,7 +2,7 @@
   <div class="second-nav"
     :class="{show: hasSecondNav}">
     <ul class="clearfix">
-      <li v-for="route in routes"
+      <li v-for="(route, $index) in routes"
         v-if="
         route.parent
         && !route.parent.parent
@@ -15,7 +15,7 @@
           || cRouteFullPath.indexOf(`${fullPath(route)}/`) !== -1
           || (route.childState && route.childState.indexOf(cRouteFullPath) !== -1)
         }"
-        :key="route.$index">
+        :key="$index">
         <a href="javascript:void(0)"
           @click="goTo(route)">{{route.name}}</a>
       </li>
@@ -46,6 +46,7 @@
 
       $(window).on('resize', this.resize);
 
+      console.log('second menu created');
       this.$router.afterEach(updateRouter);
 
       updateRouter();

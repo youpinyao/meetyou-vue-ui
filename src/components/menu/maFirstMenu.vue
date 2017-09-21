@@ -1,12 +1,12 @@
 <template>
   <div class="nav">
     <ul>
-      <li v-for="route in routes"
+      <li v-for="(route, $index) in routes"
         :class="{
           active: cRoute.path === route.path || cRoute.path.indexOf(route.path + '/') !== -1
         }"
         v-if="route.path !== '/' && route.hidden !== true"
-        :key="route.name">
+        :key="$index">
         <a href="javascript:void(0)"
           @click="toPage(route)">{{route.name}}</a>
       </li>
@@ -23,6 +23,7 @@
       };
     },
     created() {
+      console.log('first created');
       this.$router.afterEach((to) => {
         this.cRoute = to;
       });

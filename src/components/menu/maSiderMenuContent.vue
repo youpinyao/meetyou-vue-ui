@@ -1,8 +1,8 @@
 <template>
   <div class="sider-menu-content">
     <div class="sider-menu-item"
-      v-for="route in routers"
-      :key="route.$index"
+      v-for="(route, $index) in routers"
+      :key="$index"
       v-if="route.hidden !== true">
       <a href="javascript:void(0);"
         :class="route.cls"
@@ -46,32 +46,33 @@
       const self = this;
       const uuid = uuidv4();
       const fnName = `maSiderMenuContentAfterEach-${uuid}`;
-      const fns = {
-        [fnName]() {
-          self.expandCurrentMenu();
-        },
+      const fn = function () {
+        self.expandCurrentMenu();
       };
 
+      fn.fnName = fnName;
       this.fnName = fnName;
-      this.fns = fns;
+      this.fn = fn;
       this.forceUpdate = forceUpdate;
       this.expandCurrentMenu();
 
-      this.$root.$on('update.sider.menu.cls', fns[fnName]);
+      this.$root.$on('update.sider.menu.cls', fn);
       this.$root.$on('update.sider.menu.force', this.forceUpdate);
-      this.$router.afterEach(fns[fnName]);
+
+      console.log('sider menu content created');
+      this.$router.afterEach(fn);
 
       function forceUpdate() {
         self.$forceUpdate();
       }
     },
     destroyed() {
-      this.$root.$off('update.sider.menu.cls', this.fns[this.fnName]);
+      this.$root.$off('update.sider.menu.cls', this.fn);
       this.$root.$off('update.sider.menu.force', this.forceUpdate);
 
       // 删除router afterEach
       util.each(this.$router.afterHooks, (d, i) => {
-        if (d.name === this.fnName) {
+        if (d.fnName === this.fnName) {
           delete this.$router.afterHooks[i];
         }
       });

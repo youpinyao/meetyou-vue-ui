@@ -3,7 +3,7 @@
     <ma-crumb-auto></ma-crumb-auto>
     <div class="feedback-message-page">
       <div class="container"
-        ma-full-container>
+        v-ma-full-container>
         <h2>Message 全局提示</h2>
         <p>
           可提供成功、警告和错误等反馈信息。 顶部居中显示并自动消失，是一种不打断用户操作的轻量级提示方式。
