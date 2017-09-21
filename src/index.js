@@ -17,6 +17,7 @@ import {
   maButton,
   maMessage,
   maAlert,
+  maSpin,
 } from './components';
 
 window.util = util;
@@ -31,6 +32,7 @@ export default {
     Vue.component('maIcon', maIcon);
     Vue.component('maButton', maButton);
     Vue.component('maAlert', maAlert);
+    Vue.component('maSpin', maSpin);
 
     Vue.directive('ma-full-container', maFullContainer);
 

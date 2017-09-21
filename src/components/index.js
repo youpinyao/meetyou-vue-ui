@@ -6,6 +6,7 @@ import maSiderMenuContent from './menu/maSiderMenuContent';
 
 import maMessage from './message';
 import maAlert from './alert';
+import maSpin from './spin';
 
 import maIcon from './icons/maIcon';
 import maButton from './button/maButton';
@@ -20,4 +21,5 @@ export {
   maButton,
   maMessage,
   maAlert,
+  maSpin,
 };

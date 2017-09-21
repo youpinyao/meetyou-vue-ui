@@ -18,6 +18,7 @@ import cls from '../../pages/components/layout/cls';
 import feedback from '../../pages/components/feedback';
 import message from '../../pages/components/feedback/message';
 import alert from '../../pages/components/feedback/alert';
+import spin from '../../pages/components/feedback/spin';
 
 import utils from '../../pages/utils';
 
@@ -101,6 +102,10 @@ const routerConfig = [{
       path: 'alert',
       name: 'Alert 警告提示',
       component: alert,
+    }, {
+      path: 'spin',
+      name: 'Spin 加载中',
+      component: spin,
     }],
   }],
 }, {
