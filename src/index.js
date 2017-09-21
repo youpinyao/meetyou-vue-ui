@@ -20,6 +20,7 @@ import {
   maSpin,
   maInput,
   maSwitch,
+  maInputNumber,
 } from './components';
 
 window.util = util;
@@ -37,6 +38,7 @@ export default {
     Vue.component('maSpin', maSpin);
     Vue.component('maInput', maInput);
     Vue.component('maSwitch', maSwitch);
+    Vue.component('maInputNumber', maInputNumber);
 
     Vue.directive('ma-full-container', maFullContainer);
 

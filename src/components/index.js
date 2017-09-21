@@ -10,6 +10,7 @@ import maSpin from './spin';
 
 import maInput from './input';
 import maSwitch from './switch';
+import maInputNumber from './inputNumber';
 
 import maIcon from './icons/maIcon';
 import maButton from './button/maButton';
@@ -27,4 +28,5 @@ export {
   maSpin,
   maInput,
   maSwitch,
+  maInputNumber,
 };

@@ -22,6 +22,7 @@ import spin from '../../pages/components/feedback/spin';
 
 import dataEntry from '../../pages/components/data-entry';
 import input from '../../pages/components/data-entry/input';
+import inputNumber from '../../pages/components/data-entry/inputNumber';
 
 import utils from '../../pages/utils';
 
@@ -121,6 +122,10 @@ const routerConfig = [{
       path: 'input',
       name: 'Input 输入框',
       component: input,
+    }, {
+      path: 'input-number',
+      name: 'InputNumber 数字输入框',
+      component: inputNumber,
     }],
   }],
 }, {

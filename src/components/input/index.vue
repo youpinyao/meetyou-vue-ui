@@ -37,7 +37,9 @@
       ma-type="close"
       @click.native="clearClick($event)"></ma-icon>
 
-    <div ng-transclude></div>
+    <div>
+      <slot></slot>
+    </div>
   </div>
 
 </template>
