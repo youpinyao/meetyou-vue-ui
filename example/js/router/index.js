@@ -19,6 +19,7 @@ import feedback from '../../pages/components/feedback';
 import message from '../../pages/components/feedback/message';
 import alert from '../../pages/components/feedback/alert';
 import spin from '../../pages/components/feedback/spin';
+import progress from '../../pages/components/feedback/progress/index';
 
 import dataEntry from '../../pages/components/data-entry';
 import input from '../../pages/components/data-entry/input';
@@ -110,6 +111,10 @@ const routerConfig = [{
       path: 'spin',
       name: 'Spin 加载中',
       component: spin,
+    }, {
+      path: 'progress',
+      name: 'Progress 进度条',
+      component: progress,
     }],
   }, {
     path: 'data-entry',

@@ -1,10 +1,7 @@
 // The Vue build version to load with the `import` command
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import util from './utils';
-
-import {
-  maFullContainer,
-} from './directives';
+import './directives';
 
 
 import {
@@ -21,6 +18,7 @@ import {
   maInput,
   maSwitch,
   maInputNumber,
+  maProgress,
 } from './components';
 
 window.util = util;
@@ -39,8 +37,7 @@ export default {
     Vue.component('maInput', maInput);
     Vue.component('maSwitch', maSwitch);
     Vue.component('maInputNumber', maInputNumber);
-
-    Vue.directive('ma-full-container', maFullContainer);
+    Vue.component('maProgress', maProgress);
 
     Vue.use(maMessage);
 

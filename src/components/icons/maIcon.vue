@@ -1,7 +1,7 @@
 <template>
   <i class="iconfont"
     :class="'icon-' + maType"
-    :style="'font-size:' + maSize + 'px'"></i>
+    :style="'font-size:' + maSize + 'px'"><slot></slot></i>
 </template>
 <script>
   export default {

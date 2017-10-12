@@ -7,6 +7,7 @@ import maSiderMenuContent from './menu/maSiderMenuContent';
 import maMessage from './message';
 import maAlert from './alert';
 import maSpin from './spin';
+import maProgress from './progress';
 
 import maInput from './input';
 import maSwitch from './switch';
@@ -29,4 +30,5 @@ export {
   maInput,
   maSwitch,
   maInputNumber,
+  maProgress,
 };

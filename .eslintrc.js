@@ -39,6 +39,7 @@ module.exports = {
     "no-use-before-define": 0,
     "no-unused-vars": 0,
     "no-param-reassign": 0,
-    "func-names": 0
+    "func-names": 0,
+    "prefer-rest-params": 0
   }
 }

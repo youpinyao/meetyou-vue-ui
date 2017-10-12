@@ -8,10 +8,14 @@ import App from '../pages/app';
 import router from './router';
 import store from './store';
 
+import maCode from './components/maCode';
+
 Vue.config.productionTip = false;
 
 Vue.use(Router);
 Vue.use(MeetYouUI);
+
+Vue.component('maCode', maCode);
 
 /* eslint-disable no-new */
 const vue = new Vue({

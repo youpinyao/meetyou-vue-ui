@@ -10,7 +10,11 @@
         </p>
         <h3>代码演示</h3>
         <div class="p clearfix">
-          <ma-spin :ma-size="120"></ma-spin>
+          <ma-input-number v-model="size"
+            :step="10"
+            :max="120"
+            :min="20"></ma-input-number>
+          <ma-spin :ma-size="size"></ma-spin>
         </div>
 
         <h3>API</h3>
@@ -41,7 +45,7 @@
   export default {
     data() {
       return {
-
+        size: 120,
       };
     },
     computed: {
